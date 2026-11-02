@@ -1,0 +1,152 @@
+.experience {
+  padding: 3rem 2rem;
+  position: relative;
+}
+
+.experience__container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.experience__timeline {
+  position: relative;
+  padding-left: 2.5rem;
+}
+
+.experience__line {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--border-color);
+}
+
+.experience__line-fill {
+  width: 100%;
+  height: 50%;
+  background: linear-gradient(180deg, var(--accent-blue), var(--accent-violet));
+  border-radius: 0 0 1px 1px;
+}
+
+.experience__item {
+  position: relative;
+  padding-bottom: 2.5rem;
+}
+
+.experience__item:last-child {
+  padding-bottom: 0;
+}
+
+.experience__dot {
+  position: absolute;
+  left: -2.5rem;
+  top: 0.5rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent-blue);
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.experience__dot-pulse {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 229, 255, 0.3);
+  animation: pulseRing 2s ease-out infinite;
+}
+
+@keyframes pulseRing {
+  0% { transform: scale(1); opacity: 0.5; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+.experience__card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: border-color var(--transition-fast);
+}
+
+.experience__card:hover {
+  border-color: rgba(0, 229, 255, 0.2);
+}
+
+.experience__card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.experience__icon-wrap {
+  padding: 0.5rem;
+  border-radius: 8px;
+  background: rgba(0, 229, 255, 0.08);
+  color: var(--accent-blue);
+  flex-shrink: 0;
+  display: flex;
+}
+
+.experience__role {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.experience__company {
+  font-size: 0.85rem;
+  color: var(--accent-violet);
+  font-weight: 500;
+  margin: 0.15rem 0 0;
+}
+
+.experience__period {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.05em;
+  margin: 0.75rem 0 0.5rem;
+}
+
+.experience__description {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.experience__current-badge {
+  display: inline-block;
+  margin-top: 0.75rem;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #34d399;
+  padding: 0.25rem 0.6rem;
+  border: 1px solid rgba(52, 211, 153, 0.25);
+  border-radius: 100px;
+  background: rgba(52, 211, 153, 0.06);
+}
+
+@media (max-width: 768px) {
+  .experience {
+    padding: 2.5rem 1.25rem;
+  }
+  .experience__timeline {
+    padding-left: 2rem;
+  }
+  .experience__dot {
+    left: -2rem;
+  }
+}

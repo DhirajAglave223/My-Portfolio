@@ -1,0 +1,182 @@
+.about {
+  padding: 3rem 2rem;
+  position: relative;
+}
+
+.about__container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.about__grid {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+/* Image Area */
+.about__image-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.about__image-frame {
+  position: relative;
+  width: 300px;
+  height: 380px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.about__image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(4, 8, 20, 0.9) 0%, rgba(4, 8, 20, 0.1) 40%, transparent 100%);
+  pointer-events: none;
+}
+
+.about__image-border {
+  position: absolute;
+  inset: -1px;
+  border-radius: 16px;
+  border: 1px solid transparent;
+  background: linear-gradient(135deg, rgba(0, 229, 255, 0.3), transparent 50%, rgba(56, 189, 248, 0.3)) border-box;
+  mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
+  pointer-events: none;
+}
+
+.about__image-glow {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 60px;
+  background: rgba(0, 229, 255, 0.15);
+  filter: blur(40px);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.about__status-card {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.25rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  color: var(--accent-blue);
+  font-size: 0.8rem;
+}
+
+.about__status-card > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.about__status-label {
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.about__status-project {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--text-primary);
+}
+
+/* Bio */
+.about__bio {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.about__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.5vw, 1.9rem);
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+.about__highlight--gradient {
+  background: linear-gradient(135deg, #00e5ff 0%, #38bdf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.about__highlight--gradient-alt {
+  background: linear-gradient(135deg, #a78bfa 0%, #818cf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.about__text {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin: 0;
+}
+
+.about__marquee-container {
+  margin-top: 2rem;
+}
+
+@media (max-width: 900px) {
+  .about {
+    padding: 2.5rem 1.25rem;
+  }
+  .about__grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    text-align: center;
+  }
+  .about__bio {
+    align-items: center;
+  }
+  .about__marquee-container {
+    margin-top: 1.5rem;
+  }
+}
+
+/* ── Light Mode Contrast Fixes ── */
+body.light-theme .about__highlight--gradient {
+  background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-violet) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+body.light-theme .about__highlight--gradient-alt {
+  background: linear-gradient(135deg, #6d28d9 0%, #4338ca 100%); /* Darker purples */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+body.light-theme .about__image-border {
+  background: linear-gradient(135deg, rgba(3, 105, 161, 0.4), transparent 50%, rgba(79, 70, 229, 0.4)) border-box;
+}
+
+body.light-theme .about__status-card {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: rgba(0, 0, 0, 0.1);
+}

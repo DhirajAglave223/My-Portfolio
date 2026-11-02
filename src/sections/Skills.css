@@ -1,0 +1,103 @@
+.skills {
+  padding: 3rem 2rem;
+  position: relative;
+}
+
+.skills__container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.skills__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.skills__category {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 1.5rem;
+  transition: border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.skills__category:hover {
+  border-color: rgba(0, 229, 255, 0.15);
+  transform: translateY(-3px);
+}
+
+.skills__category-title {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent-blue);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.skills__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.skills__tag {
+  font-family: var(--font-primary);
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all var(--transition-fast);
+}
+
+.skills__tag:hover {
+  color: var(--text-primary);
+  border-color: rgba(0, 229, 255, 0.2);
+  background: rgba(0, 229, 255, 0.05);
+}
+
+@media (max-width: 768px) {
+  .skills {
+    padding: 2.5rem 1.25rem;
+  }
+  .skills__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .skills__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Light Mode Contrast Fixes ── */
+body.light-theme .skills__category {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+body.light-theme .skills__category-title {
+  color: var(--accent-blue);
+  border-bottom-color: rgba(0, 0, 0, 0.1);
+}
+
+body.light-theme .skills__tag {
+  background: rgba(0, 0, 0, 0.03);
+  border-color: rgba(0, 0, 0, 0.08);
+  color: var(--text-secondary);
+}
+
+body.light-theme .skills__tag:hover {
+  background: rgba(3, 105, 161, 0.1);
+  border-color: rgba(3, 105, 161, 0.3);
+  color: var(--text-primary);
+}

@@ -1,0 +1,107 @@
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.cursor-dot.visible,
+.cursor-ring.visible {
+  opacity: 1;
+}
+
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--accent-blue);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s ease, transform 0.1s ease, width 0.3s ease, height 0.3s ease, background-color 0.3s ease;
+}
+
+.cursor-ring {
+  width: 40px;
+  height: 40px;
+  border: 1.5px solid rgba(0, 229, 255, 0.4);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s ease, width 0.3s ease, height 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+.cursor-text {
+  font-family: var(--font-primary);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--bg-primary);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.cursor-icon {
+  color: var(--bg-primary);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* States */
+
+/* Button State */
+.cursor-dot.state-button {
+  transform: translate(-50%, -50%) scale(0.5);
+  opacity: 0.5;
+}
+
+.cursor-ring.state-button {
+  width: 60px;
+  height: 60px;
+  background-color: rgba(0, 229, 255, 0.1);
+  border-color: rgba(0, 229, 255, 0.8);
+}
+
+/* Project / Image State */
+.cursor-dot.state-project,
+.cursor-dot.state-image,
+.cursor-dot.state-link {
+  opacity: 0;
+}
+
+.cursor-ring.state-project,
+.cursor-ring.state-image,
+.cursor-ring.state-link {
+  width: 80px;
+  height: 80px;
+  background-color: var(--accent-blue);
+  border-color: transparent;
+  mix-blend-mode: exclusion;
+}
+
+.cursor-ring.state-project .cursor-text,
+.cursor-ring.state-image .cursor-text,
+.cursor-ring.state-link .cursor-icon {
+  opacity: 1;
+  color: white; /* In exclusion mode, white becomes black */
+}
+
+/* Light Theme overrides */
+body.light-theme .cursor-ring.state-project,
+body.light-theme .cursor-ring.state-image,
+body.light-theme .cursor-ring.state-link {
+  mix-blend-mode: normal;
+  color: var(--bg-primary);
+}
+
+body.light-theme .cursor-ring.state-project .cursor-text,
+body.light-theme .cursor-ring.state-image .cursor-text,
+body.light-theme .cursor-ring.state-link .cursor-icon {
+  color: var(--bg-primary);
+}
